@@ -1,1 +1,66 @@
 Project Structure
+  Credit card fraud detection_fastapi/
+  │
+  ├── train.py              # Model training & evaluation
+  ├── app.py                # FastAPI inference service
+  ├── model/
+  │   └── fraud_model_pipeline.pkl
+  ├── data/
+  │   └── credit_card_fraud_10k.csv
+  ├── requirements.txt
+  └── README.md
+▶️ How to Run the Project
+
+1️⃣ Clone the Repository
+git clone <repo-url>
+cd Credit-card-fraud-detection-fastapi
+
+2️⃣ Create & Activate Virtual Environment
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Train the Model
+python train.py
+This trains the fraud detection model and saves the pipeline to the model/ directory.
+
+5️⃣ Start the API
+uvicorn app:app --reload
+
+6️⃣ Test the API
+Open in browser:
+
+http://127.0.0.1:8000/docs
+Use the /predict endpoint to test transactions.
+
+🔍 Example API Input
+{
+  "amount": 1500,
+  "transaction_hour": 23,
+  "merchant_category": "Electronics",
+  "foreign_transaction": 1,
+  "location_mismatch": 1,
+  "device_trust_score": 20,
+  "velocity_last_24h": 6,
+  "cardholder_age": 30
+}
+
+📤 Example API Output
+{
+  "fraud_probability": 0.92,
+  "is_fraud": 1
+}
+
+💡 Key Learnings & Highlights
+Handling highly imbalanced datasets is critical in fraud detection
+
+Accuracy alone is misleading; recall and cost-sensitive metrics are more meaningful
+
+Ensemble learning (Random Forest, XGBoost) significantly improves robustness
+
+End-to-end deployment requires strict alignment between training and inference
+
+Real-world ML systems benefit from probability-based decisioning, not hard labels
+
