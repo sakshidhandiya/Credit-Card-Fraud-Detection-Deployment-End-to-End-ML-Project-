@@ -1,5 +1,6 @@
 # Credit-Card-Fraud-Detection-Deployment-End-to-End-ML-Project-
 End-to-end credit card fraud detection system built using ensemble machine learning models and deployed as a real-time FastAPI service. The solution handles class imbalance, optimizes fraud recall, and supports probability-based decisioning.
+
 📌 Project Overview
 
 Credit card fraud is a high-impact, low-frequency problem where missing fraudulent transactions can result in significant financial losses.
@@ -51,7 +52,9 @@ location_mismatch	Billing vs transaction location mismatch
 device_trust_score	Device trust score (0–100)
 velocity_last_24h	Number of transactions in last 24 hours
 cardholder_age	Age of cardholder
+
 🧠 Machine Learning Approach
+
 1️⃣ Baseline Model – Logistic Regression
 
 Served as an interpretable baseline
@@ -108,38 +111,6 @@ location_mismatch	Billing vs transaction location mismatch
 device_trust_score	Device trust score (0–100)
 velocity_last_24h	Number of transactions in last 24 hours
 cardholder_age	Age of cardholder
-🧠 Machine Learning Approach
-1️⃣ Baseline Model – Logistic Regression
-
-Served as an interpretable baseline
-
-Provided insight into key fraud drivers
-
-Highlighted the limitations of linear models on complex fraud patterns
-
-2️⃣ Decision Tree
-
-Captured non-linear rules and interactions
-
-Achieved very high recall but suffered from overfitting and low precision
-
-3️⃣ Random Forest (Bagging Ensemble)
-
-Improved stability over a single decision tree
-
-Achieved strong recall with better precision
-
-Demonstrated the benefit of ensemble averaging
-
-4️⃣ XGBoost (Final Model – Boosting Ensemble)
-
-Best overall performance
-
-Excellent handling of non-linear interactions
-
-Optimized using class imbalance handling (scale_pos_weight)
-
-Selected as the final production model
 
 📈 Model Performance (Final XGBoost)
 
